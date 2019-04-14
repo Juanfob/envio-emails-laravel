@@ -20,9 +20,14 @@ Route::get('enviar',function(){
         $data = [
             'link' => 'http://www.reuma-sol.com'
         ];
+
+        $file = public_path('favicon.ico');
+
         \Mail::send('emails.notificacion', $data, function ($msg) {
             $msg->from('it@reuma-sol.com', 'Juan Fermin');
             $msg->to('juanfob@gmail.com')->subject('Notificación');
+            $msg->attach(public_path('favicon.ico'));
+
         });
         echo "Menaje enviado";
     }catch (Swift_TransportException $e){

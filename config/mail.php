@@ -2,14 +2,14 @@
 
 return [
     "driver" => "smtp",
-    "host" => "hm9681.neodigit.net",
+    "host" => "smpt.example.com",
     "port" => 587,
     "from" => array(
-        "address" => "it@reuma-sol.com",
+        "address" => "example@example.com",
         "name" => "Example"
     ),
-    "username" => "it@reuma-sol.com",
-    "password" => "wpH2v04&",
+    "username" => "example@example.com",
+    "password" => "secret",
     "sendmail" => "/usr/sbin/sendmail -bs",
     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 ];
