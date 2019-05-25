@@ -33,5 +33,18 @@ Esta vista en especial, va a recibir una variable llamado link que lo pasaremos 
 
 fuente: https://jesuschicano.es
 
+## IMPORTANTE
+Laravel: error stream_socket_enable_crypto(): al tratar de usar certificados autofirmados
 
+Se soluciona añadiendo al archivo config/mail.php
+
+'stream' => [
+    'ssl' => [
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true,
+    ],
+],
+
+Con esto, conseguiremos que no se haga la comprobación completa del certificado (especialmente para certificados auto-firmados), pero si que se efectue la negociación de la conexión cifrada.
 
